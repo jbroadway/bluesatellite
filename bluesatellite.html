@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>{{ window_title|none }} - {{ conf ('General', 'site_name') }}</title>
+	<link rel="stylesheet" type="text/css" href="/layouts/bluesatellite/style.css">
+	{! admin/head !}
+	{{ head|none }}
+</head>
+<body>
+<div class="wrapper">
+	<div id="header">
+		<h1><a href="/">{{ conf ('General', 'site_name') }}</a></h1>
+		<div class="slogan">tag line goes here</div>
+	</div>
+
+	<div id="menu">
+		{! navigation/top !}
+	</div>
+</div>
+
+<div id="content">
+	<div class="wrapper">
+		<div id="sidebar">
+			{! blocks/sidebar !}
+		</div>
+		<div id="main">
+			{% if title != '' %}<h1>{{ title|none }}</h1>{% end %}
+			{{ body|none }}
+		</div>
+	</div>
+	<div class="clear"></div>
+</div>
+
+<div id="footer">
+	<div class="wrapper">
+		&copy; {{ date('Y') }} {{ conf ('General', 'site_name') }}
+		&nbsp;|&nbsp;
+		<a href="/privacy">Privacy</a>
+	</div>
+</div>
+
+{{ tail|none }}
+</body>
+</html>
